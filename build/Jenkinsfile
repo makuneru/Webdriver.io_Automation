@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+        kubernetes {
+                cloud 'kubernetes'
+                label 'k8s-agent-oci'
+        }
+    stages {
+        stage("Install package dependencies") {
+            steps {
+                script {
+                    sh 'npm install -f'
+                }
+            }
+        }
+        stage("Run Automated Tests") {
+            steps {
+                script {
+                    sh 'npm run wdio'
+                }
+            }
+        }
+    }
+}
