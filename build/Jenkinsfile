@@ -24,4 +24,12 @@ pipeline {
             }
         }
     }
+
+    post { 
+        always { 
+            archiveArtifacts artifacts: 'allure-results/*', followSymlinks: false
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            cleanWs()
+        }
+    }
 }
