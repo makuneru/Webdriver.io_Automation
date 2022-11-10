@@ -5,7 +5,7 @@ pipeline {
                 label 'k8s-agent-oci'
         }
     }
-    tools {NodeJS "NodeJs 17.8.0"}
+    tools {nodejs 'NodeJS'}
     stages {
         stage("Install package dependencies") {
             steps {
