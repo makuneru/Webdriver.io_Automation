@@ -23,7 +23,7 @@ describe("TC 1 - Contact Page Fields Test", async () => {
     await expect(contactPage.errMessageRequired).toBeExisting();
 
     allure.addStep("Verify error messages for invalid email");
-    await contactPage.enterText(contactPage.txtEmail, "a");
+    await contactPage.enterText(contactPage.txtEmail, chance.word());
     await expect(contactPage.errInvalidEmail).toBeExisting();
 
     allure.addStep("Populate Mandatory Fields");
