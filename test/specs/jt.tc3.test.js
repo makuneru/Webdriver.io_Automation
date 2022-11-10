@@ -43,11 +43,12 @@ describe("TC 3 - Cart Page ", async () => {
     //Verify total by getting the sum of all subtotal
     let sumSubTotal = [],
       total = 0;
+    const expectedTotal = 116.9;
     for (let itemIndex = 0; itemIndex < itemsToBuy.length; itemIndex++) {
       const subTotal = await cartPage.subTotal(itemIndex + 1).getText();
       sumSubTotal.push(parseFloat(subTotal.replace("$", "")));
     }
     for (let index in sumSubTotal) total += sumSubTotal[index];
-    expect(total).toEqual(116.9);
+    expect(total).toEqual(expectedTotal);
   });
 });
