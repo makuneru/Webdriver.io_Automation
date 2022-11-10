@@ -4,6 +4,7 @@ pipeline {
                 cloud 'kubernetes'
                 label 'k8s-agent-oci'
         }
+    }
     stages {
         stage("Install package dependencies") {
             steps {
