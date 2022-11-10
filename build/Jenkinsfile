@@ -10,13 +10,15 @@ pipeline {
         stage("Install package dependencies") {
             steps {
                 script {
-                    sh 'npm install -f'
+                    echo 'Installing package dependencies'
+                    sh 'npm install'
                 }
             }
         }
         stage("Run Automated Tests") {
             steps {
                 script {
+                    echo ' Running Automated Tests'
                     sh 'npm run wdio'
                 }
             }
